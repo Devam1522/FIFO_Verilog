@@ -1,0 +1,21 @@
+# Vivado generated files
+*.jou
+*.log
+*.str
+*.wdb
+*.pb
+*.dcp
+.Xil/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.srcs/**/*.wcfg
+NA
+vivado*.backup.jou
+vivado*.backup.log
+
+# OS files
+.DS_Store
+Thumbs.db
