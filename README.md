@@ -48,7 +48,8 @@ FIFO_Verilog/
 ├── sim/
 │   └── fifo_tb.v       # Testbench
 ├── docs/
-│   └── waveform.png    # Simulation waveform screenshot
+│   ├── waveform.png    # Simulation waveform screenshot
+│   └── schematic.png   # Elaborated RTL schematic
 ├── README.md
 ├── .gitignore
 └── LICENSE
@@ -77,6 +78,18 @@ vvp fifo_sim
 ## Testbench Behavior
 
 The testbench writes 4 sequential values (1, 2, 3, 4) into the FIFO, then reads all 4 values back out, exercising both the write and read paths and verifying the `full` flag asserts after the 4th write and `empty` asserts after the 4th read.
+
+## Simulation Waveform
+
+Write phase loads `00 → 03` into the FIFO; the read phase (starting a few cycles later) drains `data_out` back through `01 → 02 → 03` in order, confirming correct FIFO ordering and flag behavior.
+
+![Waveform](docs/waveform.png)
+
+## RTL Schematic
+
+Elaborated RTL view showing the FIFO's inferred registers, pointer arithmetic (adder/subtractor), comparators for `full`/`empty`, and the underlying RAM block:
+
+![Schematic](docs/schematic.png)
 
 ## Target Device
 
